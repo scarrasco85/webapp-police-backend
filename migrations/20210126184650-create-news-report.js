@@ -1,26 +1,23 @@
 'use strict';
 module.exports = {
     up: async(queryInterface, Sequelize) => {
-        await queryInterface.createTable('Assignments', {
-            id: {
+        await queryInterface.createTable('NewsReports', {
+            numRegistro: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            fecha_ejecucion: {
-                type: Sequelize.DATE
-            },
-            id_turno: {
+            idOrden: {
                 type: Sequelize.INTEGER
             },
-            num_placa_crea_orden: {
-                type: Sequelize.STRING
+            informe: {
+                type: Sequelize.TEXT
             },
-            firmada_todos: {
+            firmadoTodos: {
                 type: Sequelize.BOOLEAN
             },
-            pdf_orden_firmada: {
+            pdfNovedadesFirmado: {
                 type: Sequelize.STRING
             },
             createdAt: {
@@ -34,6 +31,6 @@ module.exports = {
         });
     },
     down: async(queryInterface, Sequelize) => {
-        await queryInterface.dropTable('Assignments');
+        await queryInterface.dropTable('NewsReports');
     }
 };

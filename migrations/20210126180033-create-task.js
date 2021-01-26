@@ -1,26 +1,35 @@
 'use strict';
 module.exports = {
     up: async(queryInterface, Sequelize) => {
-        await queryInterface.createTable('Assignments', {
-            id: {
+        await queryInterface.createTable('Tasks', {
+            idTarea: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            fecha_ejecucion: {
-                type: Sequelize.DATE
-            },
-            id_turno: {
+            idOrden: {
                 type: Sequelize.INTEGER
             },
-            num_placa_crea_orden: {
+            horaPrevista: {
                 type: Sequelize.STRING
             },
-            firmada_todos: {
+            horaRealizada: {
+                type: Sequelize.STRING
+            },
+            realizada: {
                 type: Sequelize.BOOLEAN
             },
-            pdf_orden_firmada: {
+            motivoNoRealizada: {
+                type: Sequelize.STRING
+            },
+            descripcion: {
+                type: Sequelize.STRING
+            },
+            descripcionRealizada: {
+                type: Sequelize.STRING
+            },
+            novedad: {
                 type: Sequelize.STRING
             },
             createdAt: {
@@ -34,6 +43,6 @@ module.exports = {
         });
     },
     down: async(queryInterface, Sequelize) => {
-        await queryInterface.dropTable('Assignments');
+        await queryInterface.dropTable('Tasks');
     }
 };
