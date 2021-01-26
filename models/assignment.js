@@ -14,11 +14,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Assignment.init({
-    fecha_ejecucion: DataTypes.DATE,
-    id_turno: DataTypes.INTEGER,
-    num_placa_crea_orden: DataTypes.STRING,
-    firmada_todos: DataTypes.BOOLEAN,
-    pdf_orden_firmada: DataTypes.STRING
+    fechaEjecucion: DataTypes.DATE,
+    idTurno: DataTypes.INTEGER,
+    numPlacaCreaOrden: DataTypes.STRING,
+    firmadaTodos: DataTypes.BOOLEAN,
+    pdfOrdenFirmada: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Assignment',

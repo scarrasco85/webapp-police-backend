@@ -2,25 +2,25 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Assignments', {
-      id: {
+      idOrden: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      fecha_ejecucion: {
+      fechaEjecucion: {
         type: Sequelize.DATE
       },
-      id_turno: {
+      idTurno: {
         type: Sequelize.INTEGER
       },
-      num_placa_crea_orden: {
+      numPlacaCreaOrden: {
         type: Sequelize.STRING
       },
-      firmada_todos: {
+      firmadaTodos: {
         type: Sequelize.BOOLEAN
       },
-      pdf_orden_firmada: {
+      pdfOrdenFirmada: {
         type: Sequelize.STRING
       },
       createdAt: {
