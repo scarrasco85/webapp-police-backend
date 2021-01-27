@@ -1,18 +1,21 @@
 'use strict';
 module.exports = {
     up: async(queryInterface, Sequelize) => {
-        await queryInterface.createTable('Police', {
-            numPlaca: {
+        await queryInterface.createTable('WorkShifts', {
+            idTurno: {
                 allowNull: false,
-                autoIncrement: false,
+                autoIncrement: true,
                 primaryKey: true,
+                type: Sequelize.INTEGER
+            },
+            nombreTurno: {
                 type: Sequelize.STRING
             },
-            rol: {
-                type: Sequelize.STRING
+            horaInicio: {
+                type: Sequelize.TIME
             },
-            password: {
-                type: Sequelize.STRING
+            horaFin: {
+                type: Sequelize.TIME
             },
             createdAt: {
                 allowNull: false,
@@ -25,6 +28,6 @@ module.exports = {
         });
     },
     down: async(queryInterface, Sequelize) => {
-        await queryInterface.dropTable('Police');
+        await queryInterface.dropTable('WorkShifts');
     }
 };
