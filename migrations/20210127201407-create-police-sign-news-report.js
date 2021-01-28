@@ -9,6 +9,9 @@ module.exports = {
                 type: Sequelize.STRING
             },
             numRegistroNewsReport: {
+                allowNull: false,
+                autoIncrement: false,
+                primaryKey: true,
                 type: Sequelize.INTEGER
             },
             createdAt: {

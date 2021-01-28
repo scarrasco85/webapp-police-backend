@@ -9,6 +9,9 @@ module.exports = {
                 type: Sequelize.STRING
             },
             idOrdenAssignment: {
+                allowNull: false,
+                autoIncrement: false,
+                primaryKey: true,
                 type: Sequelize.INTEGER
             },
             fechaCreacion: {
