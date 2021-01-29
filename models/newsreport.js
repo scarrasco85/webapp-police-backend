@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
         }
     };
     NewsReport.init({
+        numRegistro: DataTypes.INTEGER,
         idOrden: DataTypes.INTEGER,
         informe: DataTypes.TEXT,
         firmadoTodos: DataTypes.BOOLEAN,

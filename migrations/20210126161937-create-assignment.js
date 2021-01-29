@@ -12,9 +12,12 @@ module.exports = {
                 type: Sequelize.DATE
             },
             idTurno: {
+                allowNull: false,
+                autoIncrement: false,
                 type: Sequelize.INTEGER
             },
             numPlacaCreaOrden: {
+                allowNull: false,
                 type: Sequelize.STRING
             },
             firmadaTodos: {

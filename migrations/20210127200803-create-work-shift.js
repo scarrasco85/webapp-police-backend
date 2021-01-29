@@ -9,6 +9,7 @@ module.exports = {
                 type: Sequelize.INTEGER
             },
             nombreTurno: {
+                allowNull: false,
                 type: Sequelize.STRING
             },
             horaInicio: {

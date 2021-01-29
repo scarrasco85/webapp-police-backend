@@ -1,23 +1,24 @@
 'use strict';
 const {
-  Model
+    Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class RolesPolice extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  };
-  RolesPolice.init({
-    nombreRol: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'RolesPolice',
-  });
-  return RolesPolice;
+    class RolesPolice extends Model {
+        /**
+         * Helper method for defining associations.
+         * This method is not a part of Sequelize lifecycle.
+         * The `models/index` file will call this method automatically.
+         */
+        static associate(models) {
+            // define association here
+        }
+    };
+    RolesPolice.init({
+        idRol: DataTypes.INTEGER,
+        nombreRol: DataTypes.STRING
+    }, {
+        sequelize,
+        modelName: 'RolesPolice',
+    });
+    return RolesPolice;
 };

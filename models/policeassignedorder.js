@@ -11,10 +11,12 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
+
         }
     };
     PoliceAssignedOrder.init({
-        //numPlaca: DataTypes.STRING
+        idOrden: DataTypes.INTEGER,
+        numPlaca: DataTypes.STRING
     }, {
         sequelize,
         modelName: 'PoliceAssignedOrder',

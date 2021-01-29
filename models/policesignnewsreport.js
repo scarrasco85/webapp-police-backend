@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
         }
     };
     PoliceSignNewsReport.init({
+        numPlacaPolice: DataTypes.STRING,
         numRegistroNewsReport: DataTypes.INTEGER
     }, {
         sequelize,

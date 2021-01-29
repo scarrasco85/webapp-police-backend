@@ -10,6 +10,7 @@ module.exports = {
             },
             idRol: {
                 allowNull: false,
+                autoIncrement: false,
                 type: Sequelize.INTEGER
             },
             password: {

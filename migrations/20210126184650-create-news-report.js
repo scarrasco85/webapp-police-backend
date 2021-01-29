@@ -9,6 +9,8 @@ module.exports = {
                 type: Sequelize.INTEGER
             },
             idOrden: {
+                allowNull: false,
+                autoIncrement: false,
                 type: Sequelize.INTEGER
             },
             informe: {

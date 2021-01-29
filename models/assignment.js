@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
         }
     };
     Assignment.init({
+        idTurno: DataTypes.INTEGER,
         fechaEjecucion: DataTypes.DATE,
         idTurno: DataTypes.INTEGER,
         numPlacaCreaOrden: DataTypes.STRING,
