@@ -8,9 +8,6 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.STRING
             },
-            rol: {
-                type: Sequelize.STRING
-            },
             password: {
                 type: Sequelize.STRING
             },

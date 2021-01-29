@@ -10,11 +10,10 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      this.belongsTo(models.RolesPolice);
     }
   };
   Police.init({
-    rol: DataTypes.STRING,
     password: DataTypes.STRING
   }, {
     sequelize,
