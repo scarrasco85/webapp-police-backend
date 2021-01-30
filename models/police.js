@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             this.belongsTo(models.RolesPolice);
+            this.hasMany(models.PoliceAssignedOrder);
+            this.hasMany(models.PoliceSignAssignment);
+            this.hasMany(models.PoliceSignNewsReport);
+            this.hasMany(models.Assignment);
+            this.hasMany(models.Assignment);
         }
     };
     Police.init({
