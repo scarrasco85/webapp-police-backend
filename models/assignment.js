@@ -19,9 +19,10 @@ module.exports = (sequelize, DataTypes) => {
         }
     };
     Assignment.init({
+        idOrden: DataTypes.INTEGER,
         idTurno: DataTypes.INTEGER,
+        fechaCreacion: DataTypes.DATE,
         fechaEjecucion: DataTypes.DATE,
-        idTurno: DataTypes.INTEGER,
         numPlacaCreaOrden: DataTypes.STRING,
         firmadaTodos: DataTypes.BOOLEAN,
         pdfOrdenFirmada: DataTypes.STRING

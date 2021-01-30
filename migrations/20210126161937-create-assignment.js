@@ -8,13 +8,16 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            fechaEjecucion: {
-                type: Sequelize.DATE
-            },
             idTurno: {
                 allowNull: false,
                 autoIncrement: false,
                 type: Sequelize.INTEGER
+            },
+            fechaCreacion: {
+                type: Sequelize.DATE
+            },
+            fechaEjecucion: {
+                type: Sequelize.DATE
             },
             numPlacaCreaOrden: {
                 allowNull: false,

@@ -45,7 +45,7 @@ module.exports = {
         queryInterface.addConstraint('PoliceSignAssignments', {
             fields: ['numPlacaPolice'],
             type: 'foreign key',
-            name: 'fkey_PoliceSignAssignment_Police',
+            name: 'fkey_PoliceSignAssignments_Police',
             references: { //Required field
                 table: 'Police',
                 field: 'numPlaca'
@@ -57,32 +57,7 @@ module.exports = {
         queryInterface.addConstraint('PoliceSignAssignments', {
             fields: ['IdOrdenAssignment'],
             type: 'foreign key',
-            name: 'fkey_PoliceSignAssignment_Assignment',
-            references: { //Required field
-                table: 'Assignments',
-                field: 'idOrden'
-            },
-            onDelete: 'cascade',
-            onUpdate: 'cascade'
-        });
-
-        // Foreign keys PoliceCreateAssignments table's
-        queryInterface.addConstraint('PoliceCreateAssignments', {
-            fields: ['numPlacaPolice'],
-            type: 'foreign key',
-            name: 'fkey_PoliceCreateAssignment_Police',
-            references: { //Required field
-                table: 'Police',
-                field: 'numPlaca'
-            },
-            onDelete: 'cascade',
-            onUpdate: 'cascade'
-        });
-
-        queryInterface.addConstraint('PoliceCreateAssignments', {
-            fields: ['idOrdenAssignment'],
-            type: 'foreign key',
-            name: 'fkey_PoliceCreateAssignment_Assignment',
+            name: 'fkey_PoliceSignAssignments_Assignment',
             references: { //Required field
                 table: 'Assignments',
                 field: 'idOrden'
@@ -116,7 +91,7 @@ module.exports = {
             onUpdate: 'cascade'
         });
 
-        // Foreign keys PoliceSignNewsReport table's
+        // Foreign keys PoliceSignNewsReports table's
         queryInterface.addConstraint('PoliceSignNewsReports', {
             fields: ['numPlacaPolice'],
             type: 'foreign key',
@@ -171,14 +146,77 @@ module.exports = {
     },
 
     down: async(queryInterface, Sequelize) => {
-        queryInterface.removeColumn(
-            'Police', // name of Source model
-            'idRol' // key we want to remove
-        );
 
+        // Delete foreign keys of PoliceAssignedOrders table's
+        queryInterface.removeConstraint(
+            'PoliceAssignedOrders',
+            'fkey_PoliceAssignedOrder_Assignment'
+        );
         queryInterface.removeConstraint(
             'PoliceAssignedOrders',
             'fkey_PoliceAssignedOrder_Police'
+        );
+
+        // Delete foreign keys of PoliceAssignedOrders table's
+        queryInterface.removeConstraint(
+            'Police',
+            'fkey_Police_RolesPolice'
+        );
+
+        // Delete foreign keys of PoliceSignAssignment table's
+        queryInterface.removeConstraint(
+            'PoliceSignAssignments',
+            'fkey_PoliceSignAssignment_Police'
+        );
+
+        queryInterface.removeConstraint(
+            'PoliceSignAssignments',
+            'fkey_PoliceSignAssignment_Assignment'
+        );
+
+        // Delete foreign keys of PoliceCreateAssignments table's
+        queryInterface.removeConstraint(
+            'PoliceCreateAssignments',
+            'fkey_PoliceCreateAssignments_Police'
+        );
+
+        queryInterface.removeConstraint(
+            'PoliceCreateAssignments',
+            'fkey_PoliceCreateAssignments_Assignment'
+        );
+
+        // Delete foreign keys of Assignments table's
+        queryInterface.removeConstraint(
+            'Assignments',
+            'fkey_Assignments_WorkShifts'
+        );
+
+        queryInterface.removeConstraint(
+            'Assignments',
+            'fkey_Assignments_Police'
+        );
+
+        // Delete foreign keys of PoliceSignNewsReports table's
+        queryInterface.removeConstraint(
+            'PoliceSignNewsReports',
+            'fkey_PoliceSignNewsReports_Police'
+        );
+
+        queryInterface.removeConstraint(
+            'PoliceSignNewsReports',
+            'fkey_PoliceSignNewsReports_NewsReports'
+        );
+
+        // Delete foreign keys of Tasks table's
+        queryInterface.removeConstraint(
+            'Tasks',
+            'fkey_Tasks_Assignments'
+        );
+
+        // Delete foreign keys of NewsReports table's
+        queryInterface.removeConstraint(
+            'NewsReports',
+            'fkey_NewsReports_Assignments'
         );
 
         return queryInterface;
