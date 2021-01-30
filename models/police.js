@@ -15,11 +15,13 @@ module.exports = (sequelize, DataTypes) => {
             this.hasMany(models.PoliceSignAssignment);
             this.hasMany(models.PoliceSignNewsReport);
             this.hasMany(models.Assignment);
-            this.hasMany(models.Assignment);
         }
     };
     Police.init({
-        numPlaca: DataTypes.STRING,
+        numPlaca: {
+            type: DataTypes.STRING,
+            primaryKey: true
+        },
         idRol: DataTypes.INTEGER,
         password: DataTypes.STRING
     }, {

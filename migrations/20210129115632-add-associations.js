@@ -9,7 +9,7 @@ module.exports = {
             type: 'foreign key',
             name: 'fkey_PoliceAssignedOrder_Assignment',
             references: { //Required field
-                table: 'Assigment',
+                table: 'Assignments',
                 field: 'idOrden'
             },
             onDelete: 'cascade',
