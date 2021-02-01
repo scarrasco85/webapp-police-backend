@@ -10,10 +10,7 @@ module.exports = (sequelize, DataTypes) => {
          * The `models/index` file will call this method automatically.
          */
         static associate(models) {
-            this.hasMany(models.Police, {
-                foreignKey: 'idRol'/* ,
-                sourceKey: 'idRol' */
-            });
+            this.hasMany(models.Police, { foreignKey: 'idRol', /* sourceKey: 'idRol' */ });
         }
     };
     RolesPolice.init({

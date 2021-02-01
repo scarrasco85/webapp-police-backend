@@ -21,8 +21,7 @@ const PoliceController = {
             const polices = await Police.findAll({
                 attributes: ['numPlaca', 'idRol'],
                 include: [{
-                    model: RolesPolice,
-                    attributes: ['nombreRol']
+                    model: RolesPolice
                 }]
             });
             res.status(200).send({
