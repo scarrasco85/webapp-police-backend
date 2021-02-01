@@ -1,4 +1,4 @@
-const { Police } = require('../models');
+const { Police, RolesPolice } = require('../models');
 
 const PoliceController = {
     async register(req, res) {
@@ -18,7 +18,13 @@ const PoliceController = {
 
     async getAll(req, res) {
         try {
-            const polices = await Police.findAll();
+            const polices = await Police.findAll({
+                attributes: ['numPlaca', 'idRol'],
+                include: [{
+                    model: RolesPolice,
+                    attributes: ['nombreRol']
+                }]
+            });
             res.status(200).send({
                 polices
             })
