@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const PoliceController = require('../controllers/policeController');
 
-router.post('/register', PoliceController.register);
-router.get('/getAll', PoliceController.getAll);
+router.post('/police', PoliceController.register);
+router.get('/police', PoliceController.getAll);
 
 module.exports = router;
