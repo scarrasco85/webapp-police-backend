@@ -14,7 +14,10 @@ module.exports = (sequelize, DataTypes) => {
         }
     };
     WorkShift.init({
-        idTurno: DataTypes.INTEGER,
+        idTurno: {
+            type: DataTypes.INTEGER,
+            primaryKey: true
+        },
         nombreTurno: DataTypes.STRING,
         horaInicio: DataTypes.TIME,
         horaFin: DataTypes.TIME

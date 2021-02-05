@@ -15,7 +15,10 @@ module.exports = (sequelize, DataTypes) => {
         }
     };
     PoliceAssignedOrder.init({
-        idOrden: DataTypes.INTEGER,
+        idOrden: {
+            type: DataTypes.INTEGER,
+            primaryKey: true
+        },
         numPlaca: DataTypes.STRING
     }, {
         sequelize,

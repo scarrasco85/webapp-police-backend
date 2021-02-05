@@ -1,4 +1,4 @@
-const { Police, RolesPolice, PoliceAssignedOrder, Assignment } = require('../models');
+const { Police, RolesPolice, PoliceAssignedOrder, Assignment, WorkShift } = require('../models');
 
 const PoliceController = {
 
@@ -127,7 +127,7 @@ const PoliceController = {
 
             });
 
-            if (police[0] == 0) {
+            if (!police[0]) {
 
                 return res.status(400).json({
                     ok: false,
@@ -192,25 +192,37 @@ const PoliceController = {
 
         }
     },
-
-    //  ******* QUEDA PENDIENTE DE RESOLVER **********
+    // Pasar este método al controlador de Ordenes
     // Get all orders assigned by police
     async getAssigmentsPolice(req, res) {
 
         try {
 
-            // Esta consulta hay que conseguir
-            // SELECT * FROM `Assignments` INNER JOIN `PoliceAssignedOrders` WHERE `Assignments`.`idOrden` = 
-            // `PoliceAssignedOrders`.`idOrden` and `PoliceAssignedOrders`.`numPlaca` = '1111'
+            const assingments = await Assignment.findAll({
 
-            const assingments = await PoliceAssignedOrder.findAll({
-
+                attributes: ['idOrden', 'idTurno', 'fechaCreacion', 'fechaEjecucion', 'numPlacaCreaOrden', 'firmadaTodos', 'pdfOrdenFirmada'],
+                raw: true,
+                nest: true,
                 include: [{
-                    model: Assignment
-                }],
-                where: {
-                    numPlaca: req.params.numPlaca
-                }
+                        model: PoliceAssignedOrder,
+                        attributes: ['numPlaca'],
+                        where: {
+                            numPlaca: req.params.numPlaca
+                        },
+                        raw: true,
+                        nest: true,
+                        include: [{
+
+                            model: Police,
+                            attributes: ['password']
+
+                        }]
+                    },
+                    {
+                        model: WorkShift,
+                        attributes: ['idTurno', 'nombreTurno', 'horaInicio', 'horaFin']
+                    }
+                ]
 
             });
 
