@@ -23,7 +23,8 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true
         },
         idRol: DataTypes.INTEGER,
-        password: DataTypes.STRING
+        password: DataTypes.STRING,
+        token: DataTypes.STRING
     }, {
         sequelize,
         modelName: 'Police',
