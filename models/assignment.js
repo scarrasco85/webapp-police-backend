@@ -19,7 +19,10 @@ module.exports = (sequelize, DataTypes) => {
         }
     };
     Assignment.init({
-        idOrden: DataTypes.INTEGER,
+        idOrden: {
+            type: DataTypes.INTEGER,
+            primaryKey: true
+        },
         idTurno: DataTypes.INTEGER,
         fechaCreacion: DataTypes.DATE,
         fechaEjecucion: DataTypes.DATE,

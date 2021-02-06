@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         idRol: {
             type: DataTypes.INTEGER,
             primaryKey: true
-        }, 
+        },
         nombreRol: DataTypes.STRING
     }, {
         sequelize,

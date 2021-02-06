@@ -12,9 +12,9 @@ module.exports = (sequelize, DataTypes) => {
         static associate(models) {
             this.belongsTo(models.RolesPolice, { foreignKey: 'idRol', /* targetKey: 'idRol' */ });
             this.hasMany(models.PoliceAssignedOrder, { foreignKey: 'numPlaca' });
-            this.hasMany(models.PoliceSignAssignment, { foreignKey: 'numPlaca'});
-            this.hasMany(models.PoliceSignNewsReport, { foreignKey: 'numPlaca'});
-            this.hasMany(models.Assignment, { foreignKey: 'numPlaca'});
+            this.hasMany(models.PoliceSignAssignment, { foreignKey: 'numPlaca' });
+            this.hasMany(models.PoliceSignNewsReport, { foreignKey: 'numPlaca' });
+            this.hasMany(models.Assignment, { foreignKey: 'numPlaca' });
         }
     };
     Police.init({
