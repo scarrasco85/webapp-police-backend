@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         static associate(models) {
             this.hasMany(models.PoliceAssignedOrder, { foreignKey: 'idOrden' });
             this.hasMany(models.PoliceSignAssignment, { foreignKey: 'idOrden' });
-            this.belongsTo(models.Police, { foreignKey: 'numPlaca' });
+            this.belongsTo(models.Police, { foreignKey: 'numPlacaCreaOrden' });
             this.hasMany(models.NewsReport, { foreignKey: 'idOrden' });
             this.belongsTo(models.WorkShift, { foreignKey: 'idTurno' });
             this.hasMany(models.Task, { foreignKey: 'idOrden' });
